@@ -1,0 +1,85 @@
+{% extends 'email/' ~ emailFolder ~ '/base.html.twig' %}
+
+{% block content %}
+	<tbody>
+		<tr style="padding:0;text-align:left;vertical-align:top">
+			<th class="small-12 large-12 columns first last" style="Margin:0 auto;color:#3D4042;font-family:Inter,sans-serif;font-size:1rem;font-weight:400;line-height:1.38;margin:0 auto;padding:0;padding-bottom:0;padding-left:0;padding-right:0;text-align:left;width:35.625rem">
+				<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+					<tbody>
+						<tr style="padding:0;text-align:left;vertical-align:top">
+							<th style="Margin:0;color:#3D4042;font-family:Inter,sans-serif;font-size:1rem;font-weight:400;line-height:1.38;margin:0;padding:0;text-align:left">
+								<div class="box__container" style="Margin:0 auto;margin:0 auto;width:27.625rem">
+									<h1 class="lead text-center" style="Margin:0;Margin-bottom:10px;color:inherit;font-family:Lora,serif;font-size:1.75rem;font-weight:400;line-height:1.38;margin:0;margin-bottom:10px;padding:0;text-align:center;word-wrap:normal">Welcome to My Neighborhood Community!</h1>
+									<p style="Margin:0;Margin-bottom:10px;color:#3D4042;font-family:Inter,sans-serif;font-size:1rem;font-weight:400;line-height:1.38;margin:0;margin-bottom:10px;padding:0;text-align:left">Thanks for registering with My Neighborhood Community, we’re excited to have you in our user community.</p>
+									<p style="Margin:0;Margin-bottom:10px;color:#3D4042;font-family:Inter,sans-serif;font-size:1rem;font-weight:400;line-height:1.38;margin:0;margin-bottom:10px;padding:0;text-align:left">Your account access details can be seen below:</p>
+									<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<td height="16px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#3D4042;font-family:Inter,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:16px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"></td>
+											</tr>
+										</tbody>
+									</table>
+									<p class="text-center" style="Margin:0;Margin-bottom:10px;color:#3D4042;font-family:Inter,sans-serif;font-size:1rem;font-weight:400;line-height:1.38;margin:0;margin-bottom:10px;padding:0;text-align:center"><img src="{{ 'https://' ~ domainWww ~ imagesPath ~ 'user_bw.png' }}" class="label__icon" style="-ms-interpolation-mode:bicubic;clear:both;display:inline-block;max-width:100%;outline:0;text-decoration:none;width:1.5rem">
+										<span class="label__text" style="vertical-align:super">Username</span>
+									</p>
+									<p class="text-center" style="Margin:0;Margin-bottom:10px;color:#3D4042;font-family:Inter,sans-serif;font-size:1rem;font-weight:400;line-height:1.38;margin:0;margin-bottom:10px;padding:0;text-align:center">
+										<b>{{ userName }}</b>
+									</p>
+									<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<td height="30px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#3D4042;font-family:Inter,sans-serif;font-size:30px;font-weight:400;hyphens:auto;line-height:30px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"></td>
+											</tr>
+										</tbody>
+									</table>
+									<p style="Margin:0;Margin-bottom:10px;color:#3D4042;font-family:Inter,sans-serif;font-size:1rem;font-weight:400;line-height:1.38;margin:0;margin-bottom:10px;padding:0;text-align:left">Click below to visit your user dashboard now:</p>
+									<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<td height="14px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#3D4042;font-family:Inter,sans-serif;font-size:14px;font-weight:400;hyphens:auto;line-height:14px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<center data-parsed="" style="min-width:35.625rem;width:100%">
+									<table class="button radius float-center" style="Margin:0;border-collapse:collapse;border-spacing:0;float:none;margin:0;padding:0;text-align:center;vertical-align:top;width:auto">
+										<tbody>
+											<tr style="padding:0;text-align:left;vertical-align:top">
+												<td style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#3D4042;font-family:Inter,sans-serif;font-size:1rem;font-weight:400;hyphens:auto;line-height:1.38;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">
+													<table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+														<tbody>
+															<tr style="padding:0;text-align:left;vertical-align:top">
+																<td style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;background:#078080;border:none;border-collapse:collapse!important;border-radius:4px;color:#fff;font-family:Inter,sans-serif;font-size:1rem;font-weight:400;hyphens:auto;line-height:1.38;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">
+																	<a target="_blank" href="{{ 'https://' ~ domainApp ~ '/my-account' }}" style="Margin:0;border:0 solid #078080;border-radius:4px;color:#fff;display:inline-block;font-family:Inter,sans-serif;font-size:1rem;font-weight:700;line-height:1.38;margin:0;padding:.875rem 1rem .875rem 1rem;text-align:left;text-decoration:none">My Dashboard</a>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</center>
+								<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+									<tbody>
+										<tr style="padding:0;text-align:left;vertical-align:top">
+											<td height="48px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#3D4042;font-family:Inter,sans-serif;font-size:48px;font-weight:400;hyphens:auto;line-height:48px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"></td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+									<tbody>
+										<tr style="padding:0;text-align:left;vertical-align:top">
+											<td height="48px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#3D4042;font-family:Inter,sans-serif;font-size:48px;font-weight:400;hyphens:auto;line-height:48px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"></td>
+										</tr>
+									</tbody>
+								</table>
+							</th>
+							<th class="expander" style="Margin:0;color:#3D4042;font-family:Inter,sans-serif;font-size:1rem;font-weight:400;line-height:1.38;margin:0;padding:0!important;text-align:left;visibility:hidden;width:0"></th>
+						</tr>
+					</tbody>
+				</table>
+			</th>
+		</tr>
+	</tbody>
+{% endblock %}

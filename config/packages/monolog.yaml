@@ -1,0 +1,10 @@
+monolog:
+    handlers:
+        predis:
+            type: predis
+            redis:
+                host: '%env(string:REDIS_LOGS_DSN)%'
+                key_name: '%env(string:REDIS_LOGS_KEY)%'
+            formatter: monolog.formatter.json
+            level: error
+            channels: ["!event"]

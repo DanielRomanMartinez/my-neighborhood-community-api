@@ -1,0 +1,42 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        @font-face {
+            font-family: 'Liberation Serif';
+            src: url(data:application/x-font-woff;charset=utf-8;base64,{{ asset_base64('pdf/assets/LiberationSerif-Regular.ttf') }});
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: 'Liberation Serif';
+            src: url(data:application/x-font-woff;charset=utf-8;base64,{{ asset_base64('pdf/assets/LiberationSerif-Bold.ttf') }});
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        @font-face {
+            font-family: 'Liberation Serif';
+            src: url(data:application/x-font-woff;charset=utf-8;base64,{{ asset_base64('pdf/assets/LiberationSerif-Italic.ttf') }});
+            font-style: italic;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: 'Liberation Serif';
+            src: url(data:application/x-font-woff;charset=utf-8;base64,{{ asset_base64('pdf/assets/LiberationSerif-BoldItalic.ttf') }});
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        * {
+            font-family: 'Liberation Serif', serif;
+        }
+    </style>
+</head>
+<body>
+    {{ content|raw }}
+</body>
+</html>

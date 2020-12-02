@@ -1,0 +1,9 @@
+customer_register:
+  path: /api/customers
+  controller: App\UI\Controller\Front\Customer\CreateCustomerPostController
+  methods: [POST]
+
+find_customers:
+  path: /api/customers
+  controller: App\UI\Controller\Front\Customer\FindCustomersGetController
+  methods: [GET]

@@ -1,0 +1,29 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 2,
+      "number_of_replicas": 1
+    }
+  },
+  "mappings": {
+    "properties": {
+      "UUID": {
+        "type": "keyword",
+        "index": true
+      },
+      "action": {
+        "type": "text"
+      },
+      "message": {
+        "type": "text"
+      },
+      "is_processed": {
+        "type": "boolean"
+      },
+      "occurred_on": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ssZZ"
+      }
+    }
+  }
+}

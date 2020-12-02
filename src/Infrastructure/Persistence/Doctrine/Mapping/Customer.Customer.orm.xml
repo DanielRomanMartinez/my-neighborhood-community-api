@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Domain\Customer\Customer" table="customers">
+        <id name="id" type="binary_uuid" column="id"/>
+        <field name="readableId" type="string" column="readable_id" length="36" unique="true"/>
+        <field name="email" type="string" column="email" length="100"/>
+        <field name="password" type="string" column="password" length="100"/>
+        <field name="firstName" type="string" column="first_name" length="50" nullable="true"/>
+        <field name="middleName" type="string" column="middle_name" length="50" nullable="true"/>
+        <field name="lastName" type="string" column="last_name" length="50" nullable="true"/>
+        <field name="lastLoginAt" type="datetime" column="last_login_at" nullable="true"/>
+        <field name="createdAt" type="datetime" column="created_at"/>
+        <field name="updatedAt" type="datetime" column="updated_at"/>
+
+        <unique-constraints>
+            <unique-constraint columns="email" name="email_idx"/>
+        </unique-constraints>
+    </entity>
+</doctrine-mapping>

@@ -1,0 +1,24 @@
+doctrine:
+    dbal:
+        driver: 'pdo_mysql'
+        server_version: '5.7'
+        charset: utf8mb4
+        default_table_options:
+            charset: utf8mb4
+            collate: utf8mb4_unicode_ci
+        url: '%env(resolve:DATABASE_URL)%'
+        types:
+            binary_uuid: App\Shared\Infrastructure\Persistence\Doctrine\BinaryUuidType
+        mapping_types:
+            binary_uuid: binary
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/Infrastructure/Persistence/Doctrine/Mapping/'
+                prefix: 'App\Domain'
+                alias: App

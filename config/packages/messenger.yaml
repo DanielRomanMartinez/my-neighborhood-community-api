@@ -1,0 +1,15 @@
+framework:
+    messenger:
+        transports:
+             async:
+                 dsn: '%env(MESSENGER_TRANSPORT_AMQP_DSN)%'
+                 options:
+                     exchange:
+                         name: domain-events
+                         type: direct
+                     queues:
+                         customer.created:
+                             binding_keys: [ 'myneighborhood.customer.1.registered' ]
+
+        routing:
+             App\Domain\Event\AbstractDomainEvent: async

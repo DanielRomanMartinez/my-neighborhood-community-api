@@ -1,0 +1,100 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    routing.uuid: '[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}'
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            string $environment: '%kernel.environment%'
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude:
+            - '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+            - '../src/Shared/Utils'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\UI\Controller\:
+        resource: '../src/UI/Controller'
+        tags: ['controller.service_arguments']
+
+    _instanceof:
+        App\Infrastructure\Persistence\Redis\RedisRepository:
+            bind:
+                $client: '@app.redis.auth'
+
+    ### Twig
+    App\Infrastructure\Template\TwigExtension:
+        bind:
+            $templateDir: '%twig.default_path%'
+
+    ### Symfony
+    symfony.yaml_parser:
+        class: Symfony\Component\Yaml\Parser
+
+    ### Logger
+    App\Infrastructure\Logger\Processor\RequestProcessor:
+        tags:
+            - { name: monolog.processor, handler: predis }
+
+    App\Infrastructure\Logger\Processor\MessengerLogProcessor:
+        tags:
+            - { name: monolog.processor, channel: messenger }
+
+    ### Redis
+    app.redis.auth:
+        class: Predis\Client
+        arguments: ['%env(string:REDIS_AUTH_DSN)%']
+
+    ### Validator
+    App\Infrastructure\Validation\Validator:
+        arguments:
+            - '@App\Infrastructure\Validation\ConstraintFactory\ConstraintValidatorFactory'
+
+    App\Infrastructure\Validation\Constraints\:
+        resource: '%kernel.project_dir%/src/Infrastructure/Validation/Constraints'
+        public: true
+
+    App\UI\Events\Listeners\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+
+    ### Binlist
+    App\Infrastructure\ApiClient\Binlist\BinlistClient:
+        arguments:
+            - '%env(BINLIST_URL)%'
+
+    ### Storage
+    app.storage.local:
+        class: App\Infrastructure\Storage\LocalStorage
+        arguments:
+            $rootStorageDir: '%kernel.project_dir%/storage'
+
+    App\Infrastructure\Storage\LocalStorage: '@app.storage.local'
+
+    ### TemplateInterface
+    app.twigtemplate:
+        class: App\Infrastructure\Template\TwigTemplate
+
+    ## Elasticsearch
+    App\Infrastructure\Persistence\ElasticSearch\ElasticSearchRepository:
+        arguments:
+            - '%env(string:ELASTIC_HOST)%'
+    App\Infrastructure\Persistence\ElasticSearch\ElasticSearchNotificationRepository:
+        arguments:
+            - '%env(string:ELASTIC_HOST)%'
+
+    ## Subscribers
+    App\Application\Customer\SendRegistrationNotification\SendRegistrationNotificationOnCustomerWasRegisteredSubscriber:
+        arguments:
+            $imagesPath: '%env(string:IMAGES_PATH)%'

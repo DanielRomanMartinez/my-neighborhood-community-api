@@ -87,9 +87,9 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
-        "lint": "cd ../legal-contracts-devops && make api-fixer-lint && cd -",
-        "fix": "cd ../legal-contracts-devops && make api-fixer-fix && cd -",
-        "test": "cd ../legal-contracts-devops && make api-test && cd -",
+        "lint": "cd ../devops && make api-fixer-lint && cd -",
+        "fix": "cd ../devops && make api-fixer-fix && cd -",
+        "test": "cd ../devops && make api-test && cd -",
         "cghooks": "vendor/bin/cghooks"
     },
     "conflict": {
